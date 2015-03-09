@@ -1,20 +1,30 @@
 body {
   background-color: #FA58AC;
   margin: 1em 1em 1em 1em;
-  padding: 1em 1em 1em 1em;
+  padding: 0 1em 0 1em;
 }
 .center {
   text-align: center;
 }
 h1 {
-  border:20px solid #D0FA58;
+  border:10px solid #D0FA58;
   padding: 0 1em 0 1em;
   background-color: #81F7BE;
 }
 h2 {
   text-decoration: underline;
 }
+p {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 p span {
   font-size: 18px;
   font-family: cursive;
+  font-weight: bold;
+  border: 10px solid black;
+  padding: 0 1em 0 1em;
+}
+p p span {
+  font-weight: bold;
 }
