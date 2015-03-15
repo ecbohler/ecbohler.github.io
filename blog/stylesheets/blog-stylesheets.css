@@ -14,6 +14,9 @@ h1 {
 h2 {
   text-decoration: underline;
 }
+h4 {
+  text-decoration: underline;
+}
 p {
   padding-top: 1em;
   padding-bottom: 1em;
@@ -27,4 +30,16 @@ p span {
 }
 p p span {
   font-weight: bold;
+}
+#left {
+  display: inline-block;
+  position: absolute;
+  right: 60%;
+  padding: 1em;
+}
+#right {
+  display: inline-block;
+  position: relative;
+  left: 30%;
+  padding: 1em;
 }
