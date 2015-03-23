@@ -6,6 +6,11 @@ body {
 .center {
   text-align: center;
 }
+#border {
+  display: inline-block;
+  border: 9px solid black;
+  float: left
+}
 h1 {
   border:10px solid #D0FA58;
   padding: 0 1em 0 1em;
@@ -18,8 +23,7 @@ h4 {
   text-decoration: underline;
 }
 p {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 1em;
 }
 p span {
   font-size: 18px;
@@ -34,12 +38,24 @@ p p span {
 #left {
   display: inline-block;
   position: absolute;
-  right: 60%;
+  right: 50%;
   padding: 1em;
+  border: 9px solid black;
 }
 #right {
   display: inline-block;
-  position: relative;
-  left: 30%;
+  position: absolute;
+  left: 50%;
   padding: 1em;
+}
+#table{
+  border: 5px dotted black;
+  border-width: 10px;
+  border
+}
+#clear {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  top: 700px;
 }
