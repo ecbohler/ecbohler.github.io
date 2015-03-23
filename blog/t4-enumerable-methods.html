@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Coding Conceptulizations</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="stylesheets/blog-stylesheets.css">
+  <link rel="stylesheet" type="text/css" href="blog/stylesheets/default.css">
+</head>
+
+<main>
+  <div class="center">
+  <h1>The Vault of Thoughts</h1>
+  <h2>Saturday: The Enumerables: group_by</h2>
+  <h4>March 21, 2015</h4>
+  </div>
+  <div id="left">
+  <img src="http://www.globalnerdy.com/wordpress/wp-content/uploads/2008/08/ruby_enumerablegroup_by.jpg" alt="Aha" style="width:400px; height:300px"/>
+  </div>
+
+   <div id="right">
+   <p>
+      The enumerable "group_by" breaks a collection into groups based on some given criteria.  It returns these groups as a hash where each key represents each group and the value is an array containing the member of each group.
+    </p>
+    <p>
+      Example Ruby Code:
+      (0..15).group_by {|number| number % 3}
+    </p>
+    <p>
+      Output:
+      {0=>[0, 3, 6, 9, 12, 15], 1=>[1, 4, 7, 10, 13], 2=>[2, 5, 8, 11, 14]}
+    </p>
+    <p>
+      The numbers 0-15 are passed through the criteria (number % 3).  The output is a hash where the keys are the 3 groups (remainder of 0, 1 or 2) and the values are the associated members of the group which are the numbers 0-15 that return 0, 1 or 2.
+    </p>
+  </div>
+</main>
+</html>
