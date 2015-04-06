@@ -59,3 +59,12 @@ p p span {
   bottom: 10px;
   top: 700px;
 }
+
+#single_border {
+  display: inline-block;
+  border: 9px solid black;
+}
+
+#bold {
+  font-weight: bold;
+}
