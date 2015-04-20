@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enumerable CheatSheet</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="stylesheets/cheat-sheet.css">
+</head>
+
+<main>
+  <div class="center">
+    <div id="underline">
+      <h1>Top 5 Enumerable Methods</h1></div>
+
+  <h4>April 17, 2015</h4>
+
+  <div id="image_right">
+  <div id="border">
+      <img src="http://www.globalnerdy.com/wordpress/wp-content/uploads/2008/08/ruby_enumerablefind_all_enumerableselect.jpg" alt="Aha" style="width:500px;height:400px"/></div>
+  </div></div>
+
+  <div id="image_left">
+  <div id="border">
+      <img src="http://globalnerdy.com/wordpress/wp-content/uploads/2008/07/ruby_enumerableeach_slice_2.jpg" alt="Aha" style="width:500px;height:400px"/></div>
+  </div></div>
+
+<br></br>
+
+<div id="list_left">
+  <div id="only_border">
+  <h3>The #collect Method</h3>
+    <ul>
+      <pre>
+        <li>collect { |item| block } → new_ary</pre>
+      <p>
+        Invokes the given block once for each element of self.
+
+        Creates a new array containing the values returned by the block.
+
+        If no block is given, an Enumerator is returned instead.</p></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>The #count Method</h3>
+    <pre>
+      <li>count { |item| block } → int</pre>
+      <p>
+        Returns the number of elements.
+
+        If an argument is given, counts the number of elements which equal obj using ==.
+
+        If a block is given, counts the number of elements for which the block returns a true value.</p></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>The #include? Method</h3>
+    <pre>
+      <li>include?(obj) → true or false</pre>
+
+      <p>
+        Returns true if any member of enum equals obj. Equality is tested using ==.</p></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>The #map Method</h3>
+    <pre>
+      <li>map { |obj| block } → array</pre>
+
+      <p>
+        Returns a new array with the results of running block once for every element in enum.
+
+        If no block is given, an enumerator is returned instead.</p></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>The #select Method</h3>
+    <pre>
+      <li>select { |obj| block } → array</pre>
+
+      <p>
+        Returns an array containing all elements of enum for which the given block returns a true value.
+
+        If no block is given, an Enumerator is returned instead.</p></li></div>
+
+    </ul>
+</div>
+
+
+<div id="list_right">
+  <div id="only_border">
+  <h3>#collect method: Example Code</h3>
+    <ul>
+      <pre><li>
+        a = [1,2,3,4,5]
+        b = a.collect{|x| 10*x}
+        puts b</pre></li>
+
+  <h3><div id="underline">Output</div></h3>
+    <pre><li>
+        10
+        20
+        30
+        40
+        50</li></pre></div>
+
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>#count method: Example Code</h3>
+    <pre><li>
+        a = [1,2,3,4,5]
+        b = a.count{|x| 10*x}
+        puts b</pre></li>
+
+  <h3><div id="underline">Output</div></h3>
+    <pre><li>
+        5</pre></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>#include? method: Example Code</h3>
+    <pre><li>
+        a = [1,2,3,4,5]
+        b = a.include?(3)
+        puts b</pre></li>
+
+  <h3><div id="underline">Output</div></h3>
+    <pre><li>
+        true</pre></li></div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>#map method: Example Code</h3>
+    <pre><li>
+        a = [1,2,3,4,5]
+        b = a.map{|x| x*x}
+        puts b</pre></li>
+
+  <h3><div id="underline">Output</div></h3>
+    <pre><li>
+        1
+        4
+        9
+        16
+        25</li></pre></div>
+
+    <br></br>
+    <br></br>
+
+  <div id="only_border">
+  <h3>#select method: Example Code</h3>
+    <pre><li>
+        a = [1,2,3,4,5]
+        b = a.select{|x| x.even?}
+        puts b</pre></li>
+
+  <h3><div id="underline">Output</div></h3>
+    <pre><li>
+        [2,4]</li></pre></div>
+
+    <br></br>
+
+    </ul>
+ </div>
+</main>
+</html>
