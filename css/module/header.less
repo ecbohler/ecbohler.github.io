@@ -1,0 +1,112 @@
+.top {
+  // height: 8px;
+  background: @primarycolor;
+}
+
+.header {
+  border-bottom: 1px solid #EAEAEA;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  @media @mobile {
+    // height: 130px;
+    margin-bottom: 0em;
+    padding-bottom: 0em;
+  }
+}
+
+.header-logo {
+  width: 120px;
+  margin-right: 50px;
+  display: block;
+  float: left;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: @customfont;
+  color: #333;
+  font-weight: 600;
+}
+
+.header-menu {
+  display: inline-block;
+  text-transform: uppercase;
+  font: bold 1.1em @basefont;
+  height: 40px;
+  margin: 0px;
+  line-height: 42px;
+
+  @media @mobile {
+    float: right;
+  }
+}
+
+// Session Dropdown
+.session-dropdown {
+  float: right;
+  height: 30px;
+  margin-right: 20px;
+  padding: 0px;
+  // display: none;
+  @media @mobile {
+    float: none;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    // display: block;
+
+  }
+}
+
+// User Profile
+.user-profile {
+  float: right;
+  height:30px;
+  font-size: 15px;
+  line-height: 2.1em;
+  color: #FFF;
+  form {
+    margin-right: 0px;
+    display: inline-block;
+    color: #FFF;
+    @media @mobile {
+      // margin-right: 140px;
+    }
+  }
+  a {
+    color: #FFF;
+  }
+
+  .user-profile-username {
+    font-weight: 700;
+    height: 30px;
+  }
+  @media @mobile {
+
+    float: right;
+    // display: block;
+    // margin-right: auto;
+    margin-right: 5px;
+
+  }
+
+}
+
+.profile-clear {
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  text-indent: 0;
+  font-size: 15px;
+  line-height: 2.1em;
+  color: #FFF;
+  vertical-align: baseline;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media @mobile{
+    display: inline;
+  }
+}

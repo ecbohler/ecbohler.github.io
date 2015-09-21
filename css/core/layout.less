@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+.layout         { .clearfix(); }
+.region         { .clearfix(); }
+.block          { .clearfix(); }
+.view           { .clearfix(); }
+.node           { .clearfix(); }
+.field          { .clearfix(); }
+
+.region         { }
+.region-inner   { .container(); .clearfix(); }
+
+// No Sidebar
+body.no-sidebars {
+    .region-above-content      { .grid(12); }
+    .region-content            { .grid(12); }
+    .region-below-content      { .grid(12); }
+}
+// One Sidebar
+body.one-sidebar {
+    .region-above-content       { .grid(12); }
+    .region-sidebar-first      { .grid(3); }
+    .region-content            { .grid(9); }
+    .region-sidebar-second     { .grid(3); }
+    .region-below-content    { .grid(12); }
+}
+// Two Sidebar
+body.two-sidebars{
+    .region-above-content       { .grid(12); }
+    .region-sidebar-first       { .grid(3); }
+    .region-content             { .grid(6); }
+    .region-sidebar-second      { .grid(3); }
+    .region-below-content       { .grid(12); }
+}
+
+@media @mobile {
+    .region                     { .reset(); }
+    .region.middle              { .reset(); padding: @mobile-gutter * 1px; }
+    .region.header             { .reset(); padding: @mobile-gutter * 1px; }
+}
+
+
+
+

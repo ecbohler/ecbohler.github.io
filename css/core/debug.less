@@ -1,0 +1,20 @@
+.show-width(@width) {
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+	    content: "@{width}";
+	    background: #333;
+	    padding: 4px;
+	    color: #FFF;
+	}
+}
+.show-background() {
+	background: red;
+	div {
+		background: lighten(red, 20%) !important;
+		div {
+			background: lighten(red, 30%) !important;
+		}
+	}
+}

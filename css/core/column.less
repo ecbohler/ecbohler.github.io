@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Column
+   ========================================================================== */
+
+.column(@column;@column-padding:0;) {
+  .clearfix();
+  box-sizing: border-box;
+  @media @desktop-xl {
+    @width: (@column * @desktopxl-column-width) + (@column * @desktopxl-gutter) - (@desktopxl-gutter) * 1px;
+    width: @width;
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-right: @desktopxl-gutter * 1px;
+    margin-bottom: @desktopxl-gutter * 1px;
+    .debug & {
+      .show-width(@width);
+      .show-background();
+    }
+  }
+  @media @desktop {
+    @width: (@column * @column-width) + (@column * @gutter) - (@gutter) * 1px;
+    width: @width;
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-right: @gutter * 1px;
+    margin-bottom: @gutter * 1px;
+    .debug & {
+      .show-width(@width);
+      .show-background();
+    }
+  }
+  @media @ipad {
+    @width: (@column * @ipad-column-width) + (@column * @ipad-gutter) - (@ipad-gutter) * 1px;
+    width: @width;
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-right: @ipad-gutter * 1px;
+    margin-bottom: @ipad-gutter * 1px;
+    .debug & {
+      .show-width(@width);
+      .show-background();
+    }
+  }
+  @media @mobile {
+    width: auto;
+    display: block;
+    float: none;
+    position: relative;
+  }
+}
+
+// @iterations: 0;
+// .last(@position;@iterations:0;) when (@iterations < 30) {
+//   @offset: @position * @iterations;
+//   &:nth-of-type(@{offset}) {
+//     margin-right: 0;
+//     background: red;
+//   }
+//   .last(@position;@iterations + 1;);
+// }
+
+.last(@position) {
+  &:nth-of-type(@{position}n + 0) {
+    margin-right: 0;
+  }
+}
+
+.last() {
+  margin-right: 0 !important;
+}
+
+
+.offset(@column;) {
+  @media @desktop-xl {
+    margin-right: (@column * @desktopxl-column-width) + (@column * @desktopxl-gutter) - (@desktopxl-gutter) * 1px;
+  }
+  @media @desktop {
+    margin-right: (@column * @column-width) + (@column * @gutter) - (@gutter) * 1px;
+  }
+  @media @ipad {
+    margin-right: (@column * @ipad-column-width) + (@column * @ipad-gutter) - (@ipad-gutter) * 1px;
+  }
+  @media @mobile {
+    width: auto;
+    display: block;
+    float: none;
+    position: relative;
+  }
+}

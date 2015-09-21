@@ -1,0 +1,84 @@
+/*
+* Paradigm V1.0.0
+* Erica Bohler - ericac.moore@gmail.com
+*/
+
+// Core
+@import "core/normalize.css";
+@import "core/clearfix.less";
+@import "core/animate.css";
+@import "core/mobile.less";
+@import "core/column.less";
+@import "core/grid.less";
+@import "core/layout.less";
+@import "core/debug.less";
+@import "core/mixins.less";
+
+// Modules
+@import "module/menu.less";
+@import "module/slidebars.less";
+@import "module/social.less";
+@import "module/type.less";
+@import "module/well.less";
+
+// Project
+@import "project/portfolio.less";
+@import "project/profile.less";
+@import "project/post.less";
+
+// Theme
+@import "theme.less";
+/*
+   Fonts
+   ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,300,700,800|Roboto+Slab:400,300,700|Merriweather:400,300,700|Slabo+27px);
+
+/*
+   Global Variables
+   ========================================================================== */
+@baselineheight:			1.5;
+@basefontsize:				14px;
+@basefontcolor:				#555;
+@customfontcolor:			#333;
+@basefont:					"open sans", "helvetica", "arial";
+@customfont:				"roboto slab", "helvetica", "arial";
+@menufont:					@customfont;
+
+@primarycolor:	 			#46b980;
+@secondarycolor:			#2d3a41;
+
+/* Link Colors */
+@linkcolor:             	darken(@primarycolor, 8%);
+@linkcolorhover:        	darken(@primarycolor, 16%);
+
+/* Colors */
+@white:						#FFFFFF;
+@black:                 	#000000;
+@gray:                  	#c0c4c6;
+@red:						#a52020;
+@green:						#92ad27;
+
+/* Text Color */
+@textcolor:					#212121;
+@textcolorsecondary:		#727272;
+
+/* Body */
+body {
+	margin: 0;
+	padding: 0;
+	color: @textcolor;
+	font-family: @basefont;
+	font-size: @basefontsize;
+	line-height: @baselineheight;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Text Links */
+a {
+	border-bottom: 1px dashed rgba(70,185,128,.5);
+  	color: @primarycolor;
+  	text-decoration: none;
+}
+a:hover {
+	border-bottom: 1px solid rgba(70,185,128,1);
+}

@@ -1,0 +1,84 @@
+/**
+ * Add your custom styles here. Use a .LESS compiler to compile this 
+ * file into .css. Otherwise just create a theme.css file and edit that directly.
+ * http://lesscss.org/usage/#guis-for-less
+ */
+
+.middle {
+	padding: 30px 0 30px 0;
+	@media @mobile {
+		padding: 0;
+	}
+}
+.content {
+	.column(8);
+	.offset(1);
+}
+.sidebar {
+	.column(3);
+	.last();
+}
+.header {
+	border-top: 3px @primarycolor solid;
+	padding: 10px 0 10px 0;
+	.region-inner {
+		@media @mobile {
+			.reset();
+		}
+	}
+}
+.featured {
+	padding: 20px;
+    overflow: hidden;
+    background-color: #F3F2EF;
+    min-height: 260px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.page-title {
+	text-align: center;
+	height: auto;
+	vertical-align: middle;
+	margin-top: 110px;
+	h1 {
+		font-size: 36px;
+		line-height: 30px;
+		margin-bottom: 5px;
+		font-weight: 500;
+		color: #FFF;
+		span {
+			font-weight: 300;
+		}
+	}
+	h2 {
+		font-size: 14px;
+		line-height: 18px;
+		font-weight: 500;
+		font-family: @basefont;
+	}
+}
+
+.socialmedia {
+
+}
+
+.well {
+	text-align: center;
+	color: #FFF;
+	font-weight: 700;
+}
+
+.callout {
+	text-align: center;
+	width: 70%;
+	margin: 0 auto;
+	font-size: 18px;
+	padding: 20px 20px 40px 20px;
+	@media @mobile {
+		padding: 10px 0 30px 0;
+		font-size: 16px;
+		line-height: 26px;
+		width: 80%;
+	}
+}
