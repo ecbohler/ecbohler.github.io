@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWS</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/theme.css">
+  <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css">
+  <script src="../js/jquery-1.11.2.min.js"></script>
+  <script src="../js/prism.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../js/slidebars.min.js"></script>
+</head>
+<body class="">
+
+  <div id="sb-site">
+
+    <div class="region header">
+      <div class="region-inner">
+
+        <div class="sb-toggle-left"><i class="fa fa-bars"></i></div>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../algorithms/index.html">Algorithms</a></li>
+          <li><a href="../rails/index.html">Rails</a></li>
+          <li><a href="../wordpress/index.html">WordPress</a></li>
+          <li><a href="../reading/index.html">Reading</a></li>
+          <li><a href="../AWS/index.html">AWS</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="region featured" style="background-image: url('../images/servers.png');">
+      <div class="region-inner">
+
+        <div class="page-title">
+          <h1></h1>
+          <h2></h2>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="region middle">
+      <div class="region-inner">
+
+        <div class="content">
+
+          <div class="post">
+            <h2><a href="post.html">November 2015</a></h2>
+
+            <p>My latest learning escapade for the past couple of months has been Amazon's Web Services(AWS) tool EC2 (Elastic Compute Cloud).  The cloud has become one of the most popular platforms for hosting websites and web applications.  AWS' documentation is very thorough and clear.  It's pretty easy to follow however, I've had my share of difficulties.  Hopefully, this section will help you avoid some of my pitfalls.</p>
+
+            <p>Amazon Elastic Compute Cloud (Amazon EC2) eliminates your need to invest in hardware for an actual server, so you can develop and deploy web applications faster.  These virtual servers allow you to configure security and networking, manage storage and scalability easily.</p>
+
+            <p>An EC2 Instance is a virtual server.  As a server administrator, there will be times where a new web developer, a consultant, etc. will need access to the back-end of the web application.  You'll need to add them to the network and group and update their permissions accordingly.  This is the exact situation that I had run into and soon realized that there was a gap in my learning.</p>
+
+            <p>I had run into linux command and permission issues which locked our team out of the back-end of the WordPress Application.  Below I've provided some steps that I hope will help others circumvent this hard lesson learned.</p>
+
+            <h3>Add A New User to An Existing Instance</h3>
+            <br>
+
+            <ol>
+              <li>
+                <div class="instruction">Log into your instance, as the administrator i.e. ec2-user, via the command line</div>
+                <br>
+                <div class="code-block"><code>ssh -i my-key-pair.pem ec2-user@public-dns-name.com</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Add new user</div><br>
+                <div class="code-block"><code>[ec2-user ~]$ sudo adduser newuser</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Add new user to the web app group (if you have one, I did)</div>
+                <br>
+                <div class="code-block"><code>[ec2-user ~]$ sudo usermod -a -G groupname newuser</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Provide new user with access to web app via command line</div>
+                <br>
+                <div class="code-block"><code>[ec2-user ~]$ sudo su - newuser</code></div>
+                <br>
+                <strong><p>This allows you to set the appropriate access and permissions for the newuser as you are theoretically logged in as the newuser.</p></strong>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Create a new directory called .ssh</div>
+                <br>
+                <div class="code-block"><code>[newuser ~]$ mkdir .ssh</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Change the permissions of the directory so only the directory owner can read, write or open the directory</div>
+                <br>
+                <div class="code-block"><code>[newuser ~]$ chmod 700 .ssh</code></div>
+                <br>
+                <strong><p>This step is very important; without these exact file permissions, you will not be able to log into this account using SSH (Command line).</strong></p>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Create a file named authorized_keys in the .ssh directory</div>
+                <br>
+                <div class="code-block"><code>[newuser ~]$ touch .ssh/authorized_keys</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Change the permission of the file so only the file owner can read or write to the file</div>
+                <br>
+                <div class="code-block"><code>[newuser ~]$ chmod 600 .ssh/authorized_keys</code></div>
+                <br>
+                <strong><p>This step is very important; without these exact file permissions, you will not be able to log into this account using SSH (Command line).</strong></p>
+              </li>
+
+            </ol>
+            <p>Now we need to obtain the newuser's public key which is used to identify the newuser when accessing the server via SSH.  You should have the new user's key-pair handy (on your local computer) in order to perform the next few steps.</p><br>
+
+            <ol>
+              <li>
+                <div class="instruction">Switch back to the administrator user (ec2-user)</div>
+                <br>
+                <div class="code-block"><code>[newuser ~]$ sudo su - ec2-user</code></div>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Change the permissions on the key-pair file so that only ec2-user can view it.</div>
+                <br>
+                <div class="code-block"><code>[ec2-user ~]$ chmod 400 newuser-key-pair.pem</code></div>
+              </li>
+
+              <li>
+                <div class="instruction">Generate the public key for the newuser's key-pair file</div>
+                <br>
+                <div class="code-block"><code>[ec2-user ~]$ ssh-keygen -y</code></div>
+                <br>
+                <strong><p>This should return a series of letters and numbers (The Public Key) which you'll need to copy and paste into the authorized_keys file.</strong></p>
+              </li>
+              <br>
+
+              <li>
+                <div class="instruction">Paste the Public Key into the authorized_keys file</div>
+                <br>
+                <div class="code-block"><code><code>[ec2-user ~]$ nano .ssh/authorized_keys</code></div>
+                <br>
+                <p>You will see a text editor open up in the terminal and this is where you will paste the public key.  Once you've pasted the public key into this file, press CTRL+X to exit the editor.  You'll see a prompt to "Exit", hit "Y" and then hit "Enter" to "Save".  You should be back at the [ec2-user ~]$ prompt if this was successful.  If you have your own preferred text editor, please feel free to use it.</p>
+                <br>
+                <strong><p>This is a very important step as this public key is required in order to access the server via SSH</p></strong>
+              </li>
+
+              <li>
+                <div class="instruction">Test the SSH connection for the newuser.</div>
+                <br>
+                <div class="code-block"><code>[ec2-user ~]$ ssh -i newuser-key-pair.pem newuser@public-dns.com</code></div>
+                <br>
+                <p>If this is successful, change directory into the respective web app group to ensure the newuser has access to the appropriate files.</p>
+              </li>
+            </ol>
+
+
+          </div>
+
+        </div>
+        <!-- End Content -->
+
+        <div class="sidebar">
+          <div class="profile">
+            <img src="../images/profile_pic.jpg"/>
+            <ul>
+              <li><strong>Erica Bohler</strong> / Full Stack Developer</li>
+              <li><strong>Email:</strong> <a href="mailto:ericac.moore@gmail.com">ericac.moore@gmail.com</a></li>
+              <li><strong>Github: </strong> <a href="https://github.com/ecbohler">https://github.com/ecbohler</a></li>
+              <li><strong>Linkedin</strong> <a href="https://www.linkedin.com/in/ecbohler">https://www.linkedin.com/in/ecbohler</a></li>
+              <li><strong>Facebook</strong> <a href="https://www.facebook.com/erica.bohler">https://www.facebook.com/erica.bohler</a></li>
+              <li><strong>Twitter</strong> <a href="https://twitter.com/ericac_moore">https://twitter.com/ericac_moore</a></li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- End Middle -->
+  </div>
+  <!-- End Menu Wrapper -->
+
+</body>
+</html>

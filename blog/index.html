@@ -26,6 +26,7 @@
           <li><a href="../rails/index.html">Rails</a></li>
           <li><a href="../wordpress/index.html">WordPress</a></li>
           <li><a href="../reading/index.html">Reading</a></li>
+          <li><a href="../AWS/index.html">AWS</a></li>
         </ul>
 
       </div>
@@ -58,6 +59,16 @@
             <p>However, after some surfing, searching and reading, I found the answer to be quite simple; change the permissions of that folder to allow Wordpress to access it.</p>
 
             <code>sudo chown -R apache:apache /var/www/html</code>
+          </div>
+          <br>
+
+          <div class="post">
+            <h2><a href="post.html">Transfer Files between AWS and Wordpress without a File Transfer Program</a></h2>
+            <p class="post-type">September 22, 2015</p>
+
+            <p>Command Line</p>
+
+            <code>scp -i "your key" screenshot.png ec2-user@ec2-52-25-87-38.us-west-2.compute.amazonaws.com:/var/www/html/onescholarship/wp-content/uploads/2015/09</code>
           </div>
 
         </div>

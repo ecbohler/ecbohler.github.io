@@ -2364,6 +2364,15 @@ hr,
 /*
    Fonts
    ========================================================================== */
+.code-block {
+  background-color: #D1D1D1;
+  font-weight: bold;
+}
+
+.instruction {
+  font-weight: bolder;
+}
+
 /*
    Global Variables
    ========================================================================== */
